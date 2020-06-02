@@ -55,6 +55,6 @@ static ret_t temperature_adjust_on_ok(void* ctx, event_t* e) {
 
 * 如果有多个温度对象，可以把 model 对象传递给设置窗口。
 
-* 如果后台线程要修改 model，一定要用 idle_queue 进行串行 AUI 线程修改。
+* 如果后台线程要修改 model，一定要用 idle\_queue 进行串行化，使其在 UI 线程进行修改。
 
 * 如果希望彻底分离用户界面，建议使用 [AWTK-MVVM](https://github.com/zlgopen/awtk-mvvm)
