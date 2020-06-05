@@ -17,7 +17,7 @@ os.environ['LIB_DIR'] = APP_LIB_DIR;
 APP_CCFLAGS = ''
 APP_LINKFLAGS=''
 APP_LIBPATH = [APP_LIB_DIR]
-APP_LIBS = ['sqlite3']
+APP_LIBS = []
 APP_CPPPATH=[os.path.join(APP_ROOT, '3rd')]
 
 if hasattr(awtk, 'CC'):
@@ -44,5 +44,5 @@ else:
     OS_SUBSYSTEM_CONSOLE=awtk.OS_SUBSYSTEM_CONSOLE,
     OS_SUBSYSTEM_WINDOWS=awtk.OS_SUBSYSTEM_WINDOWS)
 
-SConscript(['3rd/sqlite3/SConscript', 'src/SConscript'])
+SConscript(['src/SConscript'])
 
