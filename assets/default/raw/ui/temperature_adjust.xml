@@ -1,8 +1,0 @@
-<window text="tempeature adjust" anim_hint="htranslate">
-  <label x="c" y="m" w="100" h="30" name="temperature" text="25"/>
-  <button x="c:-80" y="m" w="40" h="30" name="inc" focusable="true" text="+"/>
-  <button x="c:80" y="m" w="40" h="30" name="dec" focusable="true" text="-"/>
-  
-  <button x="c:-80" y="b:60" w="80" h="30" name="ok" focusable="true" text="OK"/>
-  <button x="c:80" y="b:60" w="80" h="30" name="cancel" focusable="true" text="Cancel"/>
-</window>

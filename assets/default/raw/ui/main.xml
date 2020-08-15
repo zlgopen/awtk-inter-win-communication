@@ -1,5 +1,0 @@
-<window text="tempeature" >
-  <label x="c" y="m" w="100" h="30" name="temperature" text="25"/>
-  <button x="c:-80" y="b:60" w="80" h="30" name="modify" focusable="true" text="Modify"/>
-  <button x="c:80" y="b:60" w="80" h="30" name="quit" focusable="true" text="Quit"/>
-</window>
