@@ -36,18 +36,37 @@ cd awtk; scons; cd -
 ```
 
 2. 获取 awtk-inter-win-communication 并编译
+
+
+* 下载
+
 ```
 git clone https://github.com/zlgopen/awtk-inter-win-communication.git
 cd awtk-inter-win-communication; 
 ```
 
+* 生成资源
+
 ```
 python ./scripts/update_res.py all
 ```
 
+> 或者通过 designer 生成资源
+
+
+* 编译PC版本
+
 ```
 scons
 ```
+
+* 编译LINUX FB版本
+
+```
+scons LINUX_FB=true
+```
+
+> 完整编译选项请参考[编译选项](https://github.com/zlgopen/awtk-widget-generator/blob/master/docs/build_options.md)
 
 ## 运行
 
