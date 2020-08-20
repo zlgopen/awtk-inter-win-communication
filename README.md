@@ -38,7 +38,15 @@ cd awtk; scons; cd -
 2. 获取 awtk-inter-win-communication 并编译
 ```
 git clone https://github.com/zlgopen/awtk-inter-win-communication.git
-cd awtk-inter-win-communication; scons
+cd awtk-inter-win-communication; 
+```
+
+```
+python ./scripts/update_res.py all
+```
+
+```
+scons
 ```
 
 ## 运行
