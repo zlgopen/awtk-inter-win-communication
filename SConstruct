@@ -4,4 +4,4 @@ import scripts.app_helper as app
 helper = app.Helper(ARGUMENTS);
 helper.call(DefaultEnvironment)
 
-SConscript(['src/SConscript'])
+helper.SConscript(['src/SConscript'])
