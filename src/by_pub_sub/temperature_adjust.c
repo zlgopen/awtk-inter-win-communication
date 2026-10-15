@@ -20,7 +20,6 @@
  */
 
 #include "awtk.h"
-#include "base/object_widget.h"
 #include "global.h"
 #include "topic.h"
 #include "temperature_adjust.h"
@@ -43,7 +42,7 @@ inline static ret_t temperature_return_result(widget_t* win, bool_t success) {
     float_t value = widget_get_value(widget_lookup(win, "temperature", TRUE));
     value_change_event_init(&vce, EVT_VALUE_CHANGED, NULL);
     value_set_float(&vce.new_value, value);
-    widget_dispatch(win, &vce.e);
+    object_evt_router_publish(global_evt_router(), TOPIC_TEMPERATURE_CHANGED, &vce.e);
     return RET_OK;
   }
   return RET_OK;
@@ -67,30 +66,14 @@ static ret_t temperature_adjust_on_cancel(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-static ret_t temperature_adjust_on_destroy(void* ctx, event_t* e) {
-  tk_object_t* obj_win = TK_OBJECT(ctx);
-  object_evt_router_unregister(global_evt_router(), TOPIC_TEMPERATURE_CHANGED, obj_win);
-  tk_object_unref(obj_win);
-  return RET_OK;
-}
-
 static ret_t temperature_adjust_open(float_t init_value) {
   widget_t* win = window_open("temperature_adjust");
-  tk_object_t* obj_win = object_widget_create(win);
 
   widget_child_on(win, "inc", EVT_CLICK, temperature_adjust_on_inc, win);
   widget_child_on(win, "dec", EVT_CLICK, temperature_adjust_on_dec, win);
   widget_child_on(win, "ok", EVT_CLICK, temperature_adjust_on_ok, win);
   widget_child_on(win, "cancel", EVT_CLICK, temperature_adjust_on_cancel, win);
   widget_set_value(widget_lookup(win, "temperature", TRUE), init_value);
-
-  widget_on(win, EVT_DESTROY, temperature_adjust_on_destroy, obj_win);
-
-  object_evt_router_register(global_evt_router(), TOPIC_TEMPERATURE_CHANGED, obj_win,
-                             EVT_VALUE_CHANGED,
-                             &(object_evt_router_register_opt_t){
-                                 .publisher_lifecycle = TK_OBJECT_LIFE_HOLD,
-                             });
 
   return RET_OK;
 }

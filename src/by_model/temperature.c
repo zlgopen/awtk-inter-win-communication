@@ -1,5 +1,5 @@
 /**
- * File:   temperature.h
+ * File:   temperature.c
  * Author: AWTK Develop Team
  * Brief:  temperature model
  *

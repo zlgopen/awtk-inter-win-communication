@@ -1,5 +1,5 @@
-﻿/**
- * File:   global.h
+/**
+ * File:   global.c
  * Author: AWTK Develop Team
  * Brief:  全局。
  *
